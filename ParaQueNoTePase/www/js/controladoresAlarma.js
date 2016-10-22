@@ -50,7 +50,7 @@ $scope.showPosition=function(position){
 	
 	$scope.alarma.latitud=position.coords.latitude;
 	$scope.alarma.longitud=position.coords.longitude;
-	x.innerHTML=position.coords.latitude;
+
 	Delitos.cargarAlarma($scope.alarma);
 	console.info($scope.alarma);
 	} );
