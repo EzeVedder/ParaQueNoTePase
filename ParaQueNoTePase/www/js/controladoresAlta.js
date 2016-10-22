@@ -12,22 +12,17 @@ angular.module('alta.controllers', [])
     $scope.Guardar=function(){
 
         //Recupero las coordenadas
-        $scope.getLocation();
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition($scope.showPosition);
+        } else {
+            console.log("Geolocation is not supported by this browser.");
+        }
         
         alert("La carga se realizó con éxito");
         //$scope.alta = {};
         $scope.alta.foto = "sinfoto.jpg";
 
     }
-
-    $scope.getLocation = function() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition($scope.showPosition);
-        } else {
-            $scope.alta.lat = "Sin datos";
-            $scope.alta.lon = "Sin datos";
-        }
-    };
 
     $scope.showPosition = function(position) {
         setTimeout(function() {

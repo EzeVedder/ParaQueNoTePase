@@ -3,13 +3,13 @@
         <form id="formAlta" name="formAlta" enctype="multipart/form-data" novalidate >
             <!-- TIPO -->
             <label class="item item-input item-stacked-label">Tipo de Denuncia</label>
-            <div class="list">
-                <ion-radio name="tipo" ng-model="alta.tipo" ng-value="Violencia">Violencia</ion-radio>
-                <ion-radio name="tipo" ng-model="alta.tipo" ng-value="Robo">Robo</ion-radio>
-                <ion-radio name="tipo" ng-model="alta.tipo" ng-value="Incendio">Incendio</ion-radio>
-            </div>
+            <ion-list class="list">
+                <ion-radio name="tipo" ng-model="alta.tipo" ng-value="'Violencia'">Violencia</ion-radio>
+                <ion-radio name="tipo" ng-model="alta.tipo" ng-value="'Accidente'">Accidente</ion-radio>
+                <ion-radio name="tipo" ng-model="alta.tipo" ng-value="'Asalto'">Asalto</ion-radio>
+            </ion-list>
             <label class="item item-input">
-                <span class="input-label">Direccion*</span>
+                <span class="input-label">Direccion</span>
                 <input name="direccion" type="text" ng-model="alta.direccion">
             </label>
 
@@ -17,7 +17,6 @@
             <label class="item item-input">
                 <span class="input-label">Fecha</span>
                 <input type="date" class="form-control" name="fecha" id="fecha" ng-model="alta.fecha"/>
-
             </label>
 
             <button class="button button-block button-positive" ng-click="Guardar()">Enviar</button>
