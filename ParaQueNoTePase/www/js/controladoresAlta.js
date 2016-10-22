@@ -5,6 +5,8 @@ angular.module('alta.controllers', [])
 
     //Inicio las variables
     $scope.alta = {};
+    $scope.alta.tipo = "";
+    $scope.alta.fecha = "";
     $scope.alta.foto = "sinfoto.jpg";
     
     $scope.Guardar=function(){
@@ -13,7 +15,7 @@ angular.module('alta.controllers', [])
         $scope.getLocation();
         
         alert("La carga se realizó con éxito");
-        $scope.alta = {};
+        //$scope.alta = {};
         $scope.alta.foto = "sinfoto.jpg";
 
     }
