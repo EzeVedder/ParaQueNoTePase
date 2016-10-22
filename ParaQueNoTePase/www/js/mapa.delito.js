@@ -128,7 +128,8 @@ angular
       this.getDelitos = getDelitos;
       this.getAlarmas = getAlarmas;
       this.listado = listado;
-
+      this.getAlarmasMarcadores = getAlarmasMarcadores;
+      this.getDelitosMarcadores = getDelitosMarcadores;
       function listado(){
         var ref = DB.ref('delitos/');//.orderByChild('uid').equalTo($rootScope.uid);
 
@@ -174,26 +175,27 @@ angular
       function getAlarmas(){
         var ref = DB.ref('alarmas/');//.orderByChild('nombre');
 
-        console.log(ref);
         return DB.listaRef(ref);
       }
+      function getAlarmasMarcadores(){
+        var ref = DB.ref('alarmas/')
+        return DB.listaRef(ref).$loaded(function(data){
+          return agregarIconos(data);
 
-      function _formatear(objeto) {
+        }, function(e){
+          return e;
+        })
+      }
+      function getDelitosMarcadores(){
+        var ref = DB.ref('delitos/')
+        return DB.listaRef(ref).$loaded(function(data){
 
-        console.log(objeto);
-        // objeto.tomado = {};
+          return agregarIconos(data);
 
-        // objeto.salida = {};
-        // objeto.salida.dia = objeto.cargaDia.toString();
-        var empresa = {};
-        empresa.nombre = 'EMPRESA';
-        empresa.reputacion = 4;
-        empresa.telContacto = '11 4568-9875';
-        objeto.dador = empresa;
-        objeto.time = firebase.database.ServerValue.TIMESTAMP;
-        objeto.uid = $rootScope.uid;
-        objeto.tomado = false;
-        return objeto;
+        }, function(e){
+          console.log(e);
+          return e;
+        })
       }
 
       function _fechas(dia, hora){
@@ -202,5 +204,25 @@ angular
         dia.setMinutes(hora.getMinutes());
 
         return dia.getTime();
+      }
+
+      function agregarIconos(data){
+        data.forEach(function(item){
+          switch (item.tipo) {
+            case "Violencia":
+              item.icon = "Violencia.jpg";
+              break;
+            case "Accidente":
+              item.icon = "Accidente.jpg";
+              break;
+            case "Asalto":
+              item.icon = "Asalto.jpg";
+              break;
+            default:
+              item.icon = "Violencia.jpg";
+
+          }
+        })
+        return data;
       }
     }]);
