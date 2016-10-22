@@ -45,7 +45,8 @@ angular.module('starter', ['ionic', 'starter.controllers','login.controllers','a
       url: '/alta',
       views: {
         'menuContent': {
-          templateUrl: 'templates/alta.html'
+          templateUrl: 'templates/alta.html',
+          controller:'controlAlta'
         }
       }
     })

@@ -1,6 +1,6 @@
 angular.module('alarma.controllers', [])
 
-.controller('controlAlarmas', function($scope) {
+.controller('controlAlarmas', function($scope,Delitos) {
  
  $scope.alarma=[];
 $scope.alarma.latitud="";
@@ -14,7 +14,7 @@ $scope.violenciaDeGenero=function(){
 		if (navigator.geolocation) {
 		        navigator.geolocation.getCurrentPosition($scope.showPosition);
 		        $scope.alarma.tipo="violenciaDeGenero";
-
+		
 		        
 		    } else {
 		        console.log("Geolocation is not supported by this browser.");
@@ -28,6 +28,7 @@ $scope.Accidente=function(){
 	if (navigator.geolocation) {
 		        navigator.geolocation.getCurrentPosition($scope.showPosition);
 		        $scope.alarma.tipo="Accidente";
+		        
 		       
 		    } else {
 		        console.log("Geolocation is not supported by this browser.");		    }
@@ -39,6 +40,7 @@ $scope.Asalto=function(){
 		        navigator.geolocation.getCurrentPosition($scope.showPosition);
 		        $scope.alarma.tipo="Asalto";
 		       
+		       
 		    } else {
 		        console.log("Geolocation is not supported by this browser.");		    }
 }
@@ -49,6 +51,7 @@ $scope.showPosition=function(position){
 	$scope.alarma.latitud=position.coords.latitude;
 	$scope.alarma.longitud=position.coords.longitude;
 	x.innerHTML=position.coords.latitude;
+	Delitos.cargarAlarma($scope.alarma);
 	console.info($scope.alarma);
 	} );
 	
