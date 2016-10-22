@@ -1,0 +1,49 @@
+<ion-view view-title="Login">
+  <ion-content>
+    <div  ng-if="estaLogeado=='no' && !mostrarSpiner">
+        <form ng-submit="logear()" ng-if="estaLogeado=='no'" novalidate>
+          <div ng-if="false" class="list">
+            <label class="item item-input">
+              <span class="input-label">usuario</span>
+              <input type="text" ng-model="Datos.usuario"  ng-disabled="!habilitarForm">
+            </label>
+            <label class="item item-input">
+              <span class="input-label">Clave</span>
+              <input type="password" ng-model="Datos.clave" ng-disabled="!habilitarForm">
+            </label>  
+            <label class="item">
+              <button class="button button-block button-positive"   type="submit">Ingresar con correo y clave
+              </button>
+            </label>
+          </div>
+        </form>
+        <label class="item">
+          <button ng-click="authenticate('google')"   class="button button-block button-positive icon-left ion-social-googleplus">
+                    Ingresar con  Google
+          </button>
+        </label>
+        <label class="item">
+          <button ng-click="authenticate('github')" class="button button-assertive button-block icon-left ion-social-github">
+                     ingresar con Github
+          </button>     
+        </label>
+      </div>     
+      <label class="item"  ng-if="estaLogeado=='si'">
+        <button class="button button-block button-assertive"  ng-click="salir()">Salir del sistema 
+        </button>
+      </label>
+
+
+ <center ng-show="mostrarSpiner" > Verificando Credito en la SUBE    <ion-spinner icon="android" >Verificando Creditos en la SUBE</ion-spinner></center>
+
+        <ion-list>
+{{mensaje}}
+              <ion-checkbox ng-model="mostrar">mostrar detalle</ion-checkbox>
+  
+
+        </ion-list>
+
+          <pre ng-if="mostrar ">Token:<code > {{datosDelUsuario}}</code></pre>
+       
+  </ion-content>
+</ion-view>
