@@ -12,10 +12,14 @@ angular.module('login.controllers', [])
       };
  console.info("controlRegistro", "ingreso");
   //$scope.usuario=firebase.auth().currentUser.email;
+  $scope.datoscatcha="nada aun";
 
-   
+    
+
    $scope.registrar=function(){
 
+    $scope.datoscatcha=grecaptcha.getResponse();
+    console.info( $scope.datoscatcha);
     $scope.registrando=true;
    };
  
@@ -44,10 +48,14 @@ $scope.mostrarSpiner=false;
 .controller('controlLogin', function($scope, $stateParams,$timeout) {
     $scope.Datos={};
     $scope.Datos.usuario="octaviovillegas@ymail.com";
-    $scope.Datos.clave="firebasechat";
+    $scope.Datos.clave="encuesta2016";
     $scope.habilitarForm=true;
      $scope.mensaje="";
 
+<<<<<<< HEAD
+=======
+$scope.mostrarSpiner=false;
+>>>>>>> ca938241745bb665d7b1f59fcb3c042553eac859
 
     console.info("controlLoginIN", firebase.auth().currentUser);
        $scope.datosDelUsuario=JSON.stringify(firebase.auth().currentUser,"sin registrar",' ');
@@ -60,7 +68,8 @@ $scope.mostrarSpiner=false;
       };
 
       $scope.logear=function(){
-
+          $scope.mensaje= "";
+          $scope.mostrarSpiner=true;
           $scope.habilitarForm=false;
               firebase.auth().signInWithEmailAndPassword($scope.Datos.usuario, $scope.Datos.clave).catch(function(error) {
                   // Handle Errors here.
@@ -77,10 +86,11 @@ $scope.mostrarSpiner=false;
                   //document.getElementById('quickstart-sign-in').disabled = false;
                   // [END_EXCLUDE]
                 $scope.habilitarForm=true;
-              
+               $scope.mostrarSpiner=false;
                  $scope.mensaje= errorMessage;
               }).then(function(user ){ 
                       $timeout(function() {
+                            $scope.mostrarSpiner=false;
 
                             console.info("controlLoginOUT", user);
                             console.info("controlLoginOUT", firebase.auth().currentUser);
@@ -103,10 +113,15 @@ $scope.mostrarSpiner=false;
 
       };
 
+<<<<<<< HEAD
  
 
  $scope.authenticate = function(proveedor) {
    $scope.mensaje= "";
+=======
+ $scope.authenticate = function(proveedor) {
+    $scope.mensaje= "";
+>>>>>>> ca938241745bb665d7b1f59fcb3c042553eac859
     $scope.mostrarSpiner=true;
     $scope.habilitarForm=false;
    $scope.estaLogeado="no";
@@ -189,12 +204,16 @@ $scope.mostrarSpiner=false;
     $scope.logout = function() {
       $auth.logout();
     };
+<<<<<<< HEAD
+=======
+
+>>>>>>> ca938241745bb665d7b1f59fcb3c042553eac859
 
       $scope.salir= function(){
 
                firebase.auth().signOut().then(function(){ 
                     $timeout(function(){
-
+                        $scope.habilitarForm=true;
 
                       console.info("controlLoginsignOut", firebase.auth().currentUser);
                      //$scope.datosDelUsuario= firebase.auth().currentUser;
