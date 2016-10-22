@@ -10,7 +10,7 @@ $scope.alarma.tipo="";
 
 	
 $scope.violenciaDeGenero=function(){
-	alert("violencia de genero");
+	
 		if (navigator.geolocation) {
 		        navigator.geolocation.getCurrentPosition($scope.showPosition);
 		        $scope.alarma.tipo="violenciaDeGenero";
@@ -24,7 +24,7 @@ $scope.violenciaDeGenero=function(){
 
    
 $scope.Accidente=function(){
-	alert("accidente");
+	
 	if (navigator.geolocation) {
 		        navigator.geolocation.getCurrentPosition($scope.showPosition);
 		        $scope.alarma.tipo="Accidente";
@@ -35,7 +35,7 @@ $scope.Accidente=function(){
 }
 
 $scope.Asalto=function(){
-	alert("asalto");
+	
 	if (navigator.geolocation) {
 		        navigator.geolocation.getCurrentPosition($scope.showPosition);
 		        $scope.alarma.tipo="Asalto";
