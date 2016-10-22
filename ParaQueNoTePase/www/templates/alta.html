@@ -4,25 +4,22 @@
             <!-- TIPO -->
             <label class="item item-input item-stacked-label">Tipo de Denuncia</label>
             <div class="list">
-                <ion-radio ng-model="Violencia" ng-value="'Violencia'">Violencia</ion-radio>
-                <ion-radio ng-model="Robo" ng-value="'Robo'">Robo</ion-radio>
-                <ion-radio ng-model="Incendio" ng-value="'Incendio'">Incendio</ion-radio>
+                <ion-radio ng-model="alta.tipo" ng-value="Violencia">Violencia</ion-radio>
+                <ion-radio ng-model="alta.tipo" ng-value="Robo">Robo</ion-radio>
+                <ion-radio ng-model="alta.tipo" ng-value="Incendio">Incendio</ion-radio>
             </div>
             <label class="item item-input">
                 <span class="input-label">Direccion*</span>
-                <input type="text">
+                <input type="text" ng-model="alta.direccion">
             </label>
 
             <!-- FECHA-->
             <label class="item item-input">
                 <span class="input-label">Fecha</span>
-                <input type="date">
+                <input type="date" ng-model="alta.fecha">
             </label>
 
-            <input type="hidden" name="idOculto" id="id" value="" />                    
-            <input type="hidden" value="" id="idParaModificar" name="agregar" />
-            <input type="hidden" value="" id="hdnAgregar" name="agregar" />
-            <button class="button button-block button-positive">Enviar</button>
+            <button class="button button-block button-positive" ng-click="Guardar()">Enviar</button>
         </form>
     </ion-content>
 </ion-view>
