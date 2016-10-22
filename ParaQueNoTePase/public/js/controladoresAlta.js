@@ -5,26 +5,23 @@ angular.module('alta.controllers', [])
 
     //Inicio las variables
     $scope.alta = {};
+    $scope.alta.tipo = "";
+    $scope.alta.fecha = "";
     $scope.alta.foto = "sinfoto.jpg";
     
     $scope.Guardar=function(){
 
         //Recupero las coordenadas
-        $scope.getLocation();
-        
-        alert("La carga se realizó con éxito");
-        $scope.alta = {};
-        $scope.alta.foto = "sinfoto.jpg";
-
-    }
-
-    $scope.getLocation = function() {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition($scope.showPosition);
         } else {
-            $scope.alta.lat = "Sin datos";
-            $scope.alta.lon = "Sin datos";
+            console.log("Geolocation is not supported by this browser.");
         }
+        
+        alert("La carga se realizó con éxito");
+        //$scope.alta = {};
+        $scope.alta.foto = "sinfoto.jpg";
+
     }
 
     $scope.showPosition = function(position) {
@@ -32,7 +29,7 @@ angular.module('alta.controllers', [])
             $scope.alta.latitud=position.coords.latitude;
             $scope.alta.longitud=position.coords.longitude;
             console.info($scope.alta);
-            Delitos.cargar($scope.alta)
-        })
-    }
+            Delitos.cargar($scope.alta);
+        });
+    };
 });
