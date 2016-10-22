@@ -1,1 +1,5 @@
 # ParaQueNoTePase
+
+--Daniel
+--Rolando
+--Lautaro
