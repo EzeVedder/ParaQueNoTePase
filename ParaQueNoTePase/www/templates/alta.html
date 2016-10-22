@@ -1,8 +1,8 @@
-<ion-view view-title="Alta">
-    <ion-content>
+<ion-view view-title="Denunciar delito">
+    <ion-content class="fondoAlarma">
         <form id="formAlta" name="formAlta" enctype="multipart/form-data" novalidate >
             <!-- TIPO -->
-            <label class="item item-input item-stacked-label"><strong>Tipo de Denuncia</strong></label>
+            <label style="color:white; font-size: 30px;" class="item item-input item-stacked-label"><strong>Tipo de Denuncia</strong></label>
             <ion-list class="list">
                 <ion-radio name="tipo" ng-model="alta.tipo" ng-value="'Violencia'" required>&nbsp;<i class="icon-left ion-woman"></i>&nbsp;&nbsp;&nbsp;Violencia</ion-radio>
                 <ion-radio name="tipo" ng-model="alta.tipo" ng-value="'Accidente'"><i class="icon-left ion-medkit"></i>&nbsp;&nbsp;Accidente</ion-radio>
