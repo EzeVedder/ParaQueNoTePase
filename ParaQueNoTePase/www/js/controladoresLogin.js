@@ -3,6 +3,10 @@ angular.module('login.controllers', [])
 
 
 .controller('controlRegistro', function($scope, $stateParams) {
+
+
+
+
   $scope.registrando=false;
    if ( firebase.auth().currentUser) {
         $scope.estaLogeado="si";
@@ -11,7 +15,7 @@ angular.module('login.controllers', [])
          $scope.estaLogeado="no";
       };
  console.info("controlRegistro", "ingreso");
-  //$scope.usuario=firebase.auth().currentUser.email;
+
   $scope.datoscatcha="nada aun";
 
     
@@ -20,10 +24,17 @@ angular.module('login.controllers', [])
 
     $scope.datoscatcha=grecaptcha.getResponse();
     console.info( $scope.datoscatcha);
+
+
+   
+   $scope.registrar=function(){
+
+
     $scope.registrando=true;
    }
 
 })
+
 
 
 
@@ -38,6 +49,16 @@ angular.module('login.controllers', [])
 
 $scope.mostrarSpiner=false;
 
+.controller('controlLogin', function($scope, $stateParams,$timeout,$state) {
+    $scope.Datos={};
+    $scope.Datos.usuario="usuario@gmail.com";
+    $scope.Datos.clave="clave";
+    $scope.habilitarForm=true;
+     $scope.mensaje="";
+
+
+
+
     console.info("controlLoginIN", firebase.auth().currentUser);
        $scope.datosDelUsuario=JSON.stringify(firebase.auth().currentUser,"sin registrar",' ');
      //$scope.datosDelUsuario=firebase.auth().currentUser;
@@ -49,8 +70,10 @@ $scope.mostrarSpiner=false;
       };
 
       $scope.logear=function(){
+
           $scope.mensaje= "";
           $scope.mostrarSpiner=true;
+
           $scope.habilitarForm=false;
               firebase.auth().signInWithEmailAndPassword($scope.Datos.usuario, $scope.Datos.clave).catch(function(error) {
                   // Handle Errors here.
@@ -67,11 +90,18 @@ $scope.mostrarSpiner=false;
                   //document.getElementById('quickstart-sign-in').disabled = false;
                   // [END_EXCLUDE]
                 $scope.habilitarForm=true;
+
                $scope.mostrarSpiner=false;
                  $scope.mensaje= errorMessage;
               }).then(function(user ){ 
                       $timeout(function() {
                             $scope.mostrarSpiner=false;
+
+              
+                 $scope.mensaje= errorMessage;
+              }).then(function(user ){ 
+                      $timeout(function() {
+
 
                             console.info("controlLoginOUT", user);
                             console.info("controlLoginOUT", firebase.auth().currentUser);
@@ -79,6 +109,10 @@ $scope.mostrarSpiner=false;
                             if(user)
                             {
                                 $scope.estaLogeado="si";
+
+
+                               // $state.go('/exportar');
+
                             }
                             else
                             {
@@ -93,6 +127,7 @@ $scope.mostrarSpiner=false;
 
 
       };
+
 
  $scope.authenticate = function(proveedor) {
     $scope.mensaje= "";
@@ -180,11 +215,18 @@ $scope.mostrarSpiner=false;
     };
 
 
+
+
+
       $scope.salir= function(){
 
                firebase.auth().signOut().then(function(){ 
                     $timeout(function(){
+
                         $scope.habilitarForm=true;
+
+
+
 
                       console.info("controlLoginsignOut", firebase.auth().currentUser);
                      //$scope.datosDelUsuario= firebase.auth().currentUser;
