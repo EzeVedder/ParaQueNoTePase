@@ -41,11 +41,11 @@ angular.module('starter', ['ionic', 'starter.controllers','login.controllers'])
     }
   })
 
-  .state('app.browse', {
-      url: '/browse',
+  .state('app.alta', {
+      url: '/alta',
       views: {
         'menuContent': {
-          templateUrl: 'templates/browse.html'
+          templateUrl: 'templates/alta.html'
         }
       }
     })
