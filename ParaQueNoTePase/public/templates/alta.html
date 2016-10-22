@@ -1,74 +1,25 @@
 <ion-view view-title="Alta">
-  <ion-content>
-    <h1>Alta</h1>
-<form id="formAlta" name="formAlta" enctype="multipart/form-data" novalidate >
-
-            <!-- DIRECCION -->
-            <div class="form-group" ng-class="{'has-error has-feedback': !ValidarText('direccion'), 'has-success has-feedback': formAlta.direccion.$valid}">
-                <label for="direccion" class="control-label">Direccion</label>
-                <input type="text" class="form-control" name="direccion" id="direccion" ng-model="alta.direccion" placeholder="Ingrese Direccion"required maxlength=30/>
-                <span class="glyphicon form-control-feedback" ng-class="{'glyphicon-remove': !ValidarText('direccion'), 'glyphicon-ok': formAlta.direccion.$valid}"></span>
-                <small class="help-block" ng-if="!ValidarText('direccion')">* Este campo es obligatorio</small>			
-            </div>
-
+    <ion-content>
+        <form id="formAlta" name="formAlta" enctype="multipart/form-data" novalidate >
             <!-- TIPO -->
-            <div class="form-group">
-                <label class="control-label">Tipo</label>
-                <br>
-                <label class="radio-inline"><input type="radio" name="tipo" value="violencia" ng-model="alta.tipo" required/>Violencia de Género</label>
-                <label class="radio-inline"><input type="radio" name="tipo" value="incendio" ng-model="alta.tipo"/>Incendio</label>
-                <label class="radio-inline"><input type="radio" name="tipo" value="robo" ng-model="alta.tipo"/>Robo</label>
+            <label class="item item-input item-stacked-label">Tipo de Denuncia</label>
+            <div class="list">
+                <ion-radio ng-model="alta.tipo" ng-value="Violencia">Violencia</ion-radio>
+                <ion-radio ng-model="alta.tipo" ng-value="Robo">Robo</ion-radio>
+                <ion-radio ng-model="alta.tipo" ng-value="Incendio">Incendio</ion-radio>
             </div>
+            <label class="item item-input">
+                <span class="input-label">Direccion*</span>
+                <input type="text" ng-model="alta.direccion">
+            </label>
 
             <!-- FECHA-->
-            <div class="form-group" ng-class="{'has-error has-feedback': formAlta.fecha.$touched && formAlta.fecha.$viewValue == '' || formAlta.fecha.$error.date, 'has-success has-feedback': formAlta.fecha.$valid}">
-                <label for="fecha" class="control-label">Fecha</label>
-                <input type="date" class="form-control" name="fecha" id="fecha" ng-model="alta.fecha" required/>
-                <span class="glyphicon form-control-feedback" ng-class="{'glyphicon-remove': !ValidarText('fecha'), 'glyphicon-ok': formAlta.fecha.$valid}"></span>
-                <small class="help-block" ng-if="formAlta.fecha.$touched && formAlta.fecha.$viewValue == '' || formAlta.fecha.$error.date">* Este campo es obligatorio</small>
-                <!-- <pre>{{formAlta.fecha | json}}</pre> -->
-            </div>
+            <label class="item item-input">
+                <span class="input-label">Fecha</span>
+                <input type="date" ng-model="alta.fecha">
+            </label>
 
-            <!-- ZONA FILE-UPLOAD -->
-            <input type="file" nv-file-select uploader="uploader" ng-show="uploader.queue.length == 0" required>
-
-                <!-- Muestro los datos de los archivos a cargar -->
-                <ul>
-                    <li ng-repeat="item in uploader.queue">
-                        Archivo: <span ng-bind="item.file.name"></span><br/>
-                        <div ng-show="uploader.isHTML5" ng-thumb="{ file: item._file, height: 100 }"></div>
-
-                        <!-- boton upload. Lo puedo usar para carar las fotos o crear
-                            mi propia funcion y llamar a uploader.uploadAll()
-                        <button type="button" class="btn btn-success btn-xs" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">
-                            <span class="glyphicon glyphicon-upload"></span> Upload
-                        </button> -->
-
-                        <!-- boton cancel -->            
-                        <button type="button" class="btn btn-warning btn-xs" ng-click="item.cancel()" ng-disabled="!item.isUploading">
-                            <span class="glyphicon glyphicon-ban-circle"></span> Cancel
-                        </button>
-
-                        <!-- boton remove -->
-                        <button type="button" class="btn btn-danger btn-xs" ng-click="item.remove()">
-                            <span class="glyphicon glyphicon-trash"></span> Remove
-                        </button>
-                    </li>		
-                </ul>
-            <!-- <input type="button" class="btn btn-success" value="Cargar" ng-click="cargar()"> -->
-
-
-<!-- 
-            <button class="btn btn-info " name="guardar" ng-click="Guardar()" ng-disabled="formAlta.$invalid || (alta.pass != alta.confirmarClave)"><span class="glyphicon glyphicon-save">&nbsp;</span>Guardar</button>
- -->
-            <button class="btn btn-info " name="guardar" ng-click="Guardar()"><span class="glyphicon glyphicon-save">&nbsp;</span>Guardar</button>
-
-            <pre>{{alta | json}}</pre>
-
-            <input type="hidden" name="idOculto" id="id" value="" />                    
-            <input type="hidden" value="" id="idParaModificar" name="agregar" />
-            <input type="hidden" value="" id="hdnAgregar" name="agregar" />
-
+            <button class="button button-block button-positive" ng-click="Guardar()">Enviar</button>
         </form>
-  </ion-content>
+    </ion-content>
 </ion-view>
