@@ -41,10 +41,7 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('PlaylistsCtrl', function($scope) {
-  
 
-})
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {
 });
