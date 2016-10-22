@@ -210,16 +210,16 @@ angular
         data.forEach(function(item){
           switch (item.tipo) {
             case "Violencia":
-              item.icon = "Violencia.jpg";
+              item.icon = "Violencia.png";
               break;
             case "Accidente":
-              item.icon = "Accidente.jpg";
+              item.icon = "Accidente.png";
               break;
             case "Asalto":
-              item.icon = "Asalto.jpg";
+              item.icon = "Asalto.png";
               break;
             default:
-              item.icon = "Violencia.jpg";
+              item.icon = "Violencia.png";
 
           }
         })
