@@ -2,7 +2,7 @@
   <ion-content>
     <div  ng-if="estaLogeado=='no' && !mostrarSpiner">
         <form ng-submit="logear()" ng-if="estaLogeado=='no'" novalidate>
-          <div class="list">
+          <div ng-if="false" class="list">
             <label class="item item-input">
               <span class="input-label">usuario</span>
               <input type="text" ng-model="Datos.usuario"  ng-disabled="!habilitarForm">
@@ -18,12 +18,12 @@
           </div>
         </form>
         <label class="item">
-          <button ng-click="authenticate('google')"   class="button button-block icon-left ion-social-googleplus">
+          <button ng-click="authenticate('google')"   class="button button-block button-positive icon-left ion-social-googleplus">
                     Ingresar con  Google
           </button>
         </label>
         <label class="item">
-          <button ng-click="authenticate('github')" class="button button-block icon-left ion-social-github">
+          <button ng-click="authenticate('github')" class="button button-assertive button-block icon-left ion-social-github">
                      ingresar con Github
           </button>     
         </label>
