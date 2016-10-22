@@ -2,24 +2,26 @@
     <ion-content>
         <form id="formAlta" name="formAlta" enctype="multipart/form-data" novalidate >
             <!-- TIPO -->
-            <label class="item item-input item-stacked-label">Tipo de Denuncia</label>
+            <label class="item item-input item-stacked-label"><strong>Tipo de Denuncia</strong></label>
             <ion-list class="list">
-                <ion-radio name="tipo" ng-model="alta.tipo" ng-value="'Violencia'">Violencia</ion-radio>
-                <ion-radio name="tipo" ng-model="alta.tipo" ng-value="'Accidente'">Accidente</ion-radio>
-                <ion-radio name="tipo" ng-model="alta.tipo" ng-value="'Asalto'">Asalto</ion-radio>
+                <ion-radio name="tipo" ng-model="alta.tipo" ng-value="'Violencia'" required>&nbsp;<i class="icon-left ion-woman"></i>&nbsp;&nbsp;&nbsp;Violencia</ion-radio>
+                <ion-radio name="tipo" ng-model="alta.tipo" ng-value="'Accidente'"><i class="icon-left ion-medkit"></i>&nbsp;&nbsp;Accidente</ion-radio>
+                <ion-radio name="tipo" ng-model="alta.tipo" ng-value="'Asalto'"><i class="icon-left ion-unlocked"></i>&nbsp;&nbsp;&nbsp;Asalto</ion-radio>
             </ion-list>
-            <label class="item item-input">
-                <span class="input-label">Direccion</span>
-                <input name="direccion" type="text" ng-model="alta.direccion">
-            </label>
 
+            <!-- DIRECCION -->
+            <label class="item item-input">
+                <span class="input-label"><strong>Dirección</strong></span>
+                <input name="direccion" type="text" ng-model="alta.direccion" required>
+            </label>
+            
             <!-- FECHA-->
             <label class="item item-input">
-                <span class="input-label">Fecha</span>
-                <input type="date" class="form-control" name="fecha" id="fecha" ng-model="alta.fecha"/>
+                <span class="input-label"><strong>Fecha</strong></span>
+                <input type="date" class="form-control" name="fecha" id="fecha" ng-model="alta.fecha" required/>
             </label>
 
-            <button class="button button-block button-positive" ng-click="Guardar()">Enviar</button>
+            <button class="button button-block button-positive" ng-click="Guardar()" ng-disabled="formAlta.$invalid">Enviar</button>
         </form>
     </ion-content>
 </ion-view>
