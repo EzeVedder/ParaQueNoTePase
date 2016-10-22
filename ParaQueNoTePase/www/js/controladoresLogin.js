@@ -21,10 +21,12 @@ angular.module('login.controllers', [])
     $scope.datoscatcha=grecaptcha.getResponse();
     console.info( $scope.datoscatcha);
     $scope.registrando=true;
-   };
- 
+   }
 
 })
+
+
+
 
 
 .controller('controlLogin', function($scope, $stateParams,$timeout) {
@@ -35,27 +37,6 @@ angular.module('login.controllers', [])
      $scope.mensaje="";
 
 $scope.mostrarSpiner=false;
-})
-
-.controller('controlLogin', function($scope, $stateParams,$timeout,$state) {
-    $scope.Datos={};
-    $scope.Datos.usuario="usuario@gmail.com";
-    $scope.Datos.clave="clave";
-
-
-
-})
-.controller('controlLogin', function($scope, $stateParams,$timeout) {
-    $scope.Datos={};
-    $scope.Datos.usuario="octaviovillegas@ymail.com";
-    $scope.Datos.clave="encuesta2016";
-    $scope.habilitarForm=true;
-     $scope.mensaje="";
-
-<<<<<<< HEAD
-=======
-$scope.mostrarSpiner=false;
->>>>>>> ca938241745bb665d7b1f59fcb3c042553eac859
 
     console.info("controlLoginIN", firebase.auth().currentUser);
        $scope.datosDelUsuario=JSON.stringify(firebase.auth().currentUser,"sin registrar",' ');
@@ -113,15 +94,8 @@ $scope.mostrarSpiner=false;
 
       };
 
-<<<<<<< HEAD
- 
-
- $scope.authenticate = function(proveedor) {
-   $scope.mensaje= "";
-=======
  $scope.authenticate = function(proveedor) {
     $scope.mensaje= "";
->>>>>>> ca938241745bb665d7b1f59fcb3c042553eac859
     $scope.mostrarSpiner=true;
     $scope.habilitarForm=false;
    $scope.estaLogeado="no";
@@ -204,10 +178,7 @@ $scope.mostrarSpiner=false;
     $scope.logout = function() {
       $auth.logout();
     };
-<<<<<<< HEAD
-=======
 
->>>>>>> ca938241745bb665d7b1f59fcb3c042553eac859
 
       $scope.salir= function(){
 
@@ -221,7 +192,10 @@ $scope.mostrarSpiner=false;
                         $scope.estaLogeado="no";
                     });
                     
-                  });
+                  }
+
+
+                );
               
-      };
+      }
 });
