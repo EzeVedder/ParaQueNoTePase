@@ -32,12 +32,9 @@ angular.module('login.controllers', [])
 
     $scope.registrando=true;
    }
+ }
 
 })
-
-
-
-
 
 
 .controller('controlLogin', function($scope, $stateParams,$timeout) {
@@ -48,6 +45,7 @@ angular.module('login.controllers', [])
      $scope.mensaje="";
 
 $scope.mostrarSpiner=false;
+})
 
 .controller('controlLogin', function($scope, $stateParams,$timeout,$state) {
     $scope.Datos={};
@@ -128,7 +126,7 @@ $scope.mostrarSpiner=false;
 
       };
 
-
+})
  $scope.authenticate = function(proveedor) {
     $scope.mensaje= "";
     $scope.mostrarSpiner=true;
