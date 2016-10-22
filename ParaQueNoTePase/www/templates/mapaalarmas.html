@@ -1,6 +1,8 @@
 <ion-view view-title="Search">
   <ion-content>
     <h1>Alarmas</h1>
+
+   <div map-lazy-load="https://maps.google/maps/api/js">
     <ng-map center="[{{map.latitud}}, {{map.longitud}}]" zoom-to-include-markers="auto">
 
         <custom-marker ng-repeat="p in mapMarkers" position="{{p.lat}},{{p.lng}}">
@@ -10,5 +12,7 @@
           </div>
         </custom-marker>
       </ng-map>
+
+      </div>
   </ion-content>
 </ion-view>

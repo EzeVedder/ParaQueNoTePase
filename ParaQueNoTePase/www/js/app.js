@@ -41,7 +41,7 @@ angular.module('starter', [
   })
 
   .state('app.mapaAlarmas', {
-    url: '/alarmas',
+    url: '/mapaAlarmas',
     views: {
       'menuContent': {
         templateUrl: 'templates/mapaalarmas.html',
