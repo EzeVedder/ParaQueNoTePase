@@ -4,3 +4,11 @@
 .fondoAlarma{
 	background-image: url("../img/fondo.jpg");
 }
+
+.mibotonAlarma{
+
+	    border-radius: 50%;
+    max-width: 155px;
+    height: 8em;
+    margin: 7% auto;
+}

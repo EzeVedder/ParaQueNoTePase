@@ -4,7 +4,15 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers','login.controllers','alarma.controllers', 'mapa.delito','alta.controllers'])
+angular.module('starter', [
+  'ionic',
+  'starter.controllers',
+  'login.controllers',
+  'alarma.controllers',
+  'mapa.delito',
+  'alta.controllers',
+  'ngMap'
+])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -32,15 +40,24 @@ angular.module('starter', ['ionic', 'starter.controllers','login.controllers','a
     controller: 'AppCtrl'
   })
 
-  .state('app.search', {
-    url: '/search',
+  .state('app.mapaAlarmas', {
+    url: '/mapaAlarmas',
     views: {
       'menuContent': {
-        templateUrl: 'templates/search.html'
+        templateUrl: 'templates/mapaalarmas.html',
+        controller: 'mapaAlarmas'
       }
     }
   })
-
+  .state('app.mapaDelitos', {
+    url: '/delitos',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/mapadelitos.html',
+        controller: 'mapaDelitos'
+      }
+    }
+  })
   .state('app.alta', {
       url: '/alta',
       views: {
