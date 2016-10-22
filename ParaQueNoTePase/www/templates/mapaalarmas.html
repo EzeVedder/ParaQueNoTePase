@@ -1,0 +1,14 @@
+<ion-view view-title="Search">
+  <ion-content>
+    <h1>Alarmas</h1>
+    <ng-map center="[{{map.latitud}}, {{map.longitud}}]" zoom-to-include-markers="auto">
+
+        <custom-marker ng-repeat="p in mapMarkers" position="{{p.lat}},{{p.lng}}">
+          <div>
+            {{p.title}}
+            <img width="50" ng-src="./img/{{p.icon}}" />
+          </div>
+        </custom-marker>
+      </ng-map>
+  </ion-content>
+</ion-view>
