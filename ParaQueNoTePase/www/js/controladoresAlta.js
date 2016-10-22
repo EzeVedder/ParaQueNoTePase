@@ -27,14 +27,14 @@ angular.module('alta.controllers', [])
             $scope.alta.lat = "Sin datos";
             $scope.alta.lon = "Sin datos";
         }
-    }
+    };
 
     $scope.showPosition = function(position) {
         setTimeout(function() {
             $scope.alta.latitud=position.coords.latitude;
             $scope.alta.longitud=position.coords.longitude;
             console.info($scope.alta);
-            Delitos.cargar($scope.alta)
-        })
-    }
+            Delitos.cargar($scope.alta);
+        });
+    };
 });
